@@ -91,7 +91,7 @@ document.addEventListener('keydown', (event) => {
     }
 });
 
-// Function to spawn a tree at a random position on the bottom
+// Spawn a tree at a random position on the bottom
 function spawnTree() {
     const bottomSection = document.querySelector('.bottom');
     const tree = document.createElement('div');
@@ -100,7 +100,7 @@ function spawnTree() {
     bottomSection.appendChild(tree);
 }
 
-// Function to spawn a cloud
+//Spawn a cloud
 function spawnCloud() {
     const topSection = document.querySelector('.top');
     const cloud = document.createElement('div');
@@ -114,7 +114,7 @@ function spawnCloud() {
 let snowActive = false;
 let snowInterval;  // Variable to store interval for snowflakes
 
-// Function to spawn snowflakes and make them fall from top to bottom
+//Snowflakes and make them fall from top to bottom
 function startFallingSnow() {
     if (!snowActive) {
         snowActive = true;
@@ -148,5 +148,16 @@ document.querySelector('header').addEventListener('click', function() {
         document.body.appendChild(star);
 
         setTimeout(() => star.remove(), 5000);
+    }
+});
+
+document.body.addEventListener('dblclick', () => {
+    const currentColor = document.body.style.backgroundColor;
+    
+    // Toggle between beige and dark gray
+    if (currentColor === 'beige') {
+        document.body.style.backgroundColor = 'darkgray';
+    } else {
+        document.body.style.backgroundColor = 'beige';
     }
 });

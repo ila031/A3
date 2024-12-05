@@ -207,12 +207,6 @@ header {
     transform: translateY(2px);
 }
 
-/* The header class is called heart */
-
-.heart:hover {
-    transform: scale(1.2); 
-}
-
 /* Create the glowing star effect */
 .star {
     position: absolute;
