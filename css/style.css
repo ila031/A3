@@ -1,0 +1,257 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    /* NOTE: BELOW Disable scrolling */
+    overflow: hidden; 
+    font-family: Arial, sans-serif;
+    background-color: blanchedalmond;
+}
+
+body {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px; 
+    padding: 0;
+}
+
+header {
+    width: 100%;
+    text-align: center;
+    background-color: #333;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    padding-bottom: 10px;
+    padding-top: 10px;
+    margin-bottom: 10px;
+}
+
+.frame {
+    width: 900px;
+    height: 500px;
+    border: 10px solid #333;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.top, .bottom {
+    flex: 1;
+    width: 100%;
+    position: relative;
+}
+
+.top {
+    background-color: lightblue;
+    overflow: hidden;
+}
+
+.bottom {
+    background-color: lightgreen;
+}
+
+.celestial-body {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: none;
+}
+
+.sun {
+    background-color: yellow;
+}
+
+.moon {
+    background-color: white;
+}
+
+.mountains {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 150px;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    display: none;
+}
+
+.mountain {
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 100px solid #7D5A50;
+}
+
+.mountain.large {
+    border-left: 75px solid transparent;
+    border-right: 75px solid transparent;
+    border-bottom: 150px solid #5C4033;
+}
+
+.cloud {
+    position: absolute;
+    top: 20px;
+    width: 100px;
+    height: 50px;
+    background-color: white;
+    border-radius: 50%;
+    animation: moveCloud 15s linear infinite;
+}
+
+.cloud::before,
+.cloud::after {
+    content: '';
+    position: absolute;
+    background-color: white;
+    border-radius: 50%;
+}
+
+.cloud::before {
+    width: 70px;
+    height: 40px;
+    top: -20px;
+    left: 20px;
+}
+
+.cloud::after {
+    width: 50px;
+    height: 30px;
+    top: 10px;
+    left: 60px;
+}
+
+@keyframes moveCloud {
+    0% { left: -150px; }
+    100% { left: 100%; }
+}
+
+.tree {
+    position: absolute;
+    bottom: 0;
+    width: 20px;
+    height: 50px;
+    background-color: #8B4513;
+}
+
+.tree:before {
+    content: '';
+    position: absolute;
+    top: -30px;
+    left: -25px;
+    width: 70px;
+    height: 50px;
+    background-color: green;
+    border-radius: 50%;
+}
+
+.caption {
+    width: 100%;
+    background-color: #333;
+    color: white;
+    padding: 10px 0;
+    display: flex;
+    justify-content: center;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.3);
+    margin-top: -15px;
+}
+
+.caption ul {
+    display: grid;
+    /* 4 colums for below */
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 10px;
+    width: 80%;
+    padding: 0;
+    margin: 0;
+}
+
+.caption li {
+    font-size: 0.9rem;
+    list-style: none;
+}
+
+/* Reset Button */
+.reset-btn {
+    margin-top: 20px;
+    position: relative;
+    top: -20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s, background-color 0.3s;
+}
+
+.reset-btn:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+.reset-btn:active {
+    transform: translateY(2px);
+}
+
+/* The header class is called heart */
+
+.heart:hover {
+    transform: scale(1.2); 
+}
+
+/* Create the glowing star effect */
+.star {
+    position: absolute;
+    top: -10px;
+    width: 10px;
+    height: 10px;
+    background-color: gold;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    animation: float 5s linear infinite, shine 1.5s ease-in-out infinite alternate;
+}
+
+/* For STARS */
+@keyframes float {
+    0% { top: -10px; opacity: 1; }
+    100% { top: 100%; opacity: 0; }
+}
+
+@keyframes shine {
+    0% { box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); opacity: 0.8; }
+    50% { box-shadow: 0 0 25px rgba(255, 255, 255, 1); opacity: 1; }
+    100% { box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); opacity: 0.8; }
+}
+
+/* FOR snowflakes */
+@keyframes fall {
+    0% {
+        top: 0;
+    }
+    100% {
+        top: 100vh; 
+    }
+}
+
+.snowflake {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #fff;
+    border-radius: 50%;
+    animation: fall 5s linear infinite;
+}
